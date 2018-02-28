@@ -95,13 +95,14 @@ exports.default = Sketch;
 },{}],7:[function(require,module,exports) {
 'use strict';
 
+//Force page refresh on hot reload
+
 var _sketch = require('./sketch');
 
 var _sketch2 = _interopRequireDefault(_sketch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//Force page refresh on hot reload
 if (module.hot) {
     module.hot.accept(function () {
         window.location.reload();
