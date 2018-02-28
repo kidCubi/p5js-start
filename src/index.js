@@ -1,12 +1,13 @@
 'use strict';
 
+'use strict';
 //Force page refresh on hot reload
-if(module.hot) {
-    module.hot.accept(function() {
+if (module.hot) {
+    module.hot.accept(function () {
         window.location.reload();
     })
 }
 
-import App from './App';
+import Sketch from './sketch/Sketch';
 
-console.log(App)
+new p5(Sketch);
