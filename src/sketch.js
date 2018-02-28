@@ -2,14 +2,14 @@
 
 const Sketch = (p) => {
     let gray = 0;
-    p.setup = function () {
+    p.setup = () => {
         p.createCanvas(600, 800)
     };
-    p.draw = function () {
+    p.draw = () => {
         p.background(gray);
-        p.rect(p.width/2 - 25, p.height/2 - 25, 50, 50)
+        p.rect(p.width / 2 - 25, p.height / 2 - 25, 50, 50)
     };
-    p.mousePressed = function () {
+    p.mousePressed = () => {
         gray = (gray + 16) % 256
     }
 };
