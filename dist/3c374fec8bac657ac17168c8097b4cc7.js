@@ -71,34 +71,67 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({5:[function(require,module,exports) {
+})({13:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-var App = 'hello';
-
-exports.default = App;
-},{}],3:[function(require,module,exports) {
+var recalculateWindow = exports.recalculateWindow = function recalculateWindow() {
+    var sizes = {
+        wH: window.innerHeight,
+        wW: window.innerWidth
+    };
+    window.addEventListener('resize', function () {
+        sizes = {
+            wH: window.innerHeight,
+            wW: window.innerWidth
+        };
+        return sizes;
+    });
+};
+},{}],19:[function(require,module,exports) {
 'use strict';
 
-//Force page refresh on hot reload
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var _App = require('./App');
+var _helpers = require('./helpers');
 
-var _App2 = _interopRequireDefault(_App);
+var Sketch = function Sketch(p) {
+    var gray = 0;
+    p.setup = function () {
+        p.createCanvas(600, 400);
+    };
+    p.draw = function () {
+        p.background(gray);
+        p.rect(p.width / 2 - 25, p.height / 2 - 25, 50, 50);
+    };
+    p.mousePressed = function () {
+        gray = (gray + 16) % 256;
+    };
+}; //Force page refresh on hot reload
+
+exports.default = Sketch;
+},{"./helpers":13}],7:[function(require,module,exports) {
+'use strict';
+
+var _sketch = require('./sketch');
+
+var _sketch2 = _interopRequireDefault(_sketch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//Force page refresh on hot reload
 if (module.hot) {
     module.hot.accept(function () {
         window.location.reload();
     });
 }
 
-console.log(_App2.default);
-},{"./App":5}],7:[function(require,module,exports) {
+new p5(_sketch2.default);
+},{"./sketch":19}],17:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -120,7 +153,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50553' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49311' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -221,5 +254,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[7,3])
+},{}]},{},[17,7])
 //# sourceMappingURL=/dist/3c374fec8bac657ac17168c8097b4cc7.map

@@ -1,4 +1,6 @@
-'use strict';
+//Force page refresh on hot reload
+
+import {recalculateWindow} from './helpers'
 
 const Sketch = (p) => {
     let gray = 0;
