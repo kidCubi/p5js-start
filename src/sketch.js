@@ -5,7 +5,7 @@ import {recalculateWindow} from './helpers'
 const Sketch = (p) => {
     let gray = 0;
     p.setup = function () {
-        p.createCanvas(600, 400)
+        p.createCanvas(window.innerWidth, window.innerHeight)
     };
     p.draw = function () {
         p.background(gray);

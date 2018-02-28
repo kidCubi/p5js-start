@@ -102,7 +102,7 @@ var _helpers = require('./helpers');
 var Sketch = function Sketch(p) {
     var gray = 0;
     p.setup = function () {
-        p.createCanvas(600, 400);
+        p.createCanvas(window.innerWidth, window.innerHeight);
     };
     p.draw = function () {
         p.background(gray);
