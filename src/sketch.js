@@ -1,11 +1,9 @@
-//Force page refresh on hot reload
-
-import {recalculateWindow} from './helpers'
+'use strict';
 
 const Sketch = (p) => {
     let gray = 0;
     p.setup = function () {
-        p.createCanvas(window.innerWidth, window.innerHeight)
+        p.createCanvas(600, 800)
     };
     p.draw = function () {
         p.background(gray);

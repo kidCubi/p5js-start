@@ -71,38 +71,16 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({13:[function(require,module,exports) {
+})({19:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var recalculateWindow = exports.recalculateWindow = function recalculateWindow() {
-    var sizes = {
-        wH: window.innerHeight,
-        wW: window.innerWidth
-    };
-    window.addEventListener('resize', function () {
-        sizes = {
-            wH: window.innerHeight,
-            wW: window.innerWidth
-        };
-        return sizes;
-    });
-};
-},{}],19:[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _helpers = require('./helpers');
-
 var Sketch = function Sketch(p) {
     var gray = 0;
     p.setup = function () {
-        p.createCanvas(window.innerWidth, window.innerHeight);
+        p.createCanvas(600, 800);
     };
     p.draw = function () {
         p.background(gray);
@@ -111,10 +89,10 @@ var Sketch = function Sketch(p) {
     p.mousePressed = function () {
         gray = (gray + 16) % 256;
     };
-}; //Force page refresh on hot reload
+};
 
 exports.default = Sketch;
-},{"./helpers":13}],7:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 'use strict';
 
 var _sketch = require('./sketch');
@@ -131,7 +109,7 @@ if (module.hot) {
 }
 
 new p5(_sketch2.default);
-},{"./sketch":19}],17:[function(require,module,exports) {
+},{"./sketch":19}],21:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -254,5 +232,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[17,7])
+},{}]},{},[21,7])
 //# sourceMappingURL=/dist/3c374fec8bac657ac17168c8097b4cc7.map

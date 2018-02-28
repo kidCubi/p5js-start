@@ -1,3 +1,5 @@
+'use strict';
+
 import Sketch from './sketch';
 
 //Force page refresh on hot reload
